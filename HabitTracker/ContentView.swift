@@ -7,15 +7,33 @@
 
 import SwiftUI
 
+struct Habit: Identifiable, Codable {
+    var id = UUID()
+    let name: String
+    let description: String
+}
+
+@Observable
+class Habits {
+    var habits = [Habit]()
+    
+    init(habits: [Habit] = [Habit]()) {
+        self.habits = habits
+    }
+}
+
 struct ContentView: View {
+    @State private var habits = Habits()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                ForEach(habits.habits) { item in
+                    Text(item.name)
+                }
+            }
+            .navigationTitle("Habit Tracker")
         }
-        .padding()
     }
 }
 
