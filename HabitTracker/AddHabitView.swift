@@ -14,6 +14,7 @@ struct AddHabitView: View {
     
     @State private var name = ""
     @State private var description = ""
+    @State private var habitValidation = "Add Habit"
     
     // Get information from ContentView for the arrays of existing habits, so that we can add to them
     var habitsInstance: Habits
@@ -22,7 +23,7 @@ struct AddHabitView: View {
         NavigationStack {
             // Form to enter habit title and optional description
             Form {
-                Section("Add Habit") {
+                Section(habitValidation) {
                     TextField("", text: $name)
                 }
                 
@@ -35,8 +36,12 @@ struct AddHabitView: View {
                 // Button to save habit and dismiss view
                 Button("Save") {
                     let habit = Habit(name: name, description: description)
-                    habitsInstance.habits.append(habit)
-                    dismiss()
+                    if habit.name == "" {
+                        habitValidation = "Habit Title Required"
+                    } else {
+                        habitsInstance.habits.append(habit)
+                        dismiss()
+                    }
                 }
             }
         }
