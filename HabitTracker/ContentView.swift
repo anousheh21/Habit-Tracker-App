@@ -47,7 +47,7 @@ struct ContentView: View {
                 // ForEach Loop to show all habits in the habits array
                 ForEach(habitsInstance.habits) { habit in
                     NavigationLink {
-                        DetailView(description: habit.description, habitsInstance: Habits())
+                        DetailView( habitsInstance: Habits(), description: habit.description,  name: habit.name)
                     } label: {
                         Text(habit.name)
                     }

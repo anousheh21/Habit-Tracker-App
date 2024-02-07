@@ -9,16 +9,34 @@
 import SwiftUI
 
 struct DetailView: View {
-    var description: String
+    // Variables
     var habitsInstance: Habits
+    var description: String
+    var name: String
     
     var body: some View {
-        VStack {
-            Text(description)
+        NavigationStack {
+            Spacer()
+            Group {
+                if description == "" {
+                    Text("No Description")
+                        .foregroundStyle(.secondary)
+                } else {
+                    Text(description)
+                }
+            }
+                .padding(20)
+                .multilineTextAlignment(.center)
+                .navigationTitle(name)
+            
+            Spacer()
+            Spacer()
         }
     }
 }
 
 #Preview {
-    DetailView(description: "Description Placeholder", habitsInstance: Habits())
+    let placeholderDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+    
+    return DetailView(habitsInstance: Habits(), description: placeholderDescription, name: "Habit Name")
 }
