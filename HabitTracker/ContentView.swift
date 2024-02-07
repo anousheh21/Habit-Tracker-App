@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct Habit: Identifiable, Codable {
+// Struct defining structure of a single habit
+struct Habit: Identifiable, Codable, Equatable {
     var id = UUID()
     let name: String
     let description: String
 }
 
+// Class which holds an array of habits
 @Observable
 class Habits {
     var habits = [Habit]()
@@ -23,13 +25,21 @@ class Habits {
 }
 
 struct ContentView: View {
+    // Variables
     @State private var habitsInstance = Habits()
     
     @State private var showingAddHabit = false
     
     var body: some View {
         NavigationStack {
+            
+            // Shows text if there are no habits to display
+            if habitsInstance.habits == [] {
+                Text("Press + to Add a New Habit")
+            }
+            
             List {
+                // ForEach Loop to show all habits in the habits array
                 ForEach(habitsInstance.habits) { habit in
                     Text(habit.name)
                 }
@@ -37,6 +47,7 @@ struct ContentView: View {
             }
             .navigationTitle("Habit Tracker")
             .toolbar {
+                // Button to present AddHabitview
                 Button("Add Habit", systemImage: "plus") {
                     showingAddHabit = true
                 }
@@ -48,6 +59,7 @@ struct ContentView: View {
     }
     
     // FUNCTIONS
+    // Function to remove a habit
     func removeHabit(at offsets: IndexSet) {
         habitsInstance.habits.remove(atOffsets: offsets)
     }

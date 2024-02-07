@@ -4,10 +4,12 @@
 //
 //  Created by Anousheh Hasan on 07/02/2024.
 //
+// View to add a new habit, alongside an optional description
 
 import SwiftUI
 
 struct AddHabitView: View {
+    // Variables
     @Environment(\.dismiss) var dismiss
     
     @State private var name = ""
@@ -18,6 +20,7 @@ struct AddHabitView: View {
     
     var body: some View {
         NavigationStack {
+            // Form to enter habit title and optional description
             Form {
                 Section("Add Habit") {
                     TextField("", text: $name)
@@ -29,6 +32,7 @@ struct AddHabitView: View {
             }
             .navigationTitle("Add Habit")
             .toolbar {
+                // Button to save habit and dismiss view
                 Button("Save") {
                     let habit = Habit(name: name, description: description)
                     habitsInstance.habits.append(habit)
