@@ -11,6 +11,7 @@
 		8543A41D2B729A9700E67FD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8543A41C2B729A9700E67FD2 /* ContentView.swift */; };
 		8543A41F2B729A9900E67FD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8543A41E2B729A9900E67FD2 /* Assets.xcassets */; };
 		8543A4222B729A9900E67FD2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8543A4212B729A9900E67FD2 /* Preview Assets.xcassets */; };
+		8543A42B2B7368FE00E67FD2 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8543A42A2B7368FE00E67FD2 /* AddHabitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		8543A41C2B729A9700E67FD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8543A41E2B729A9900E67FD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8543A4212B729A9900E67FD2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8543A42A2B7368FE00E67FD2 /* AddHabitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,9 @@
 		8543A4192B729A9700E67FD2 /* HabitTracker */ = {
 			isa = PBXGroup;
 			children = (
-				8543A41A2B729A9700E67FD2 /* HabitTrackerApp.swift */,
+				8543A42A2B7368FE00E67FD2 /* AddHabitView.swift */,
 				8543A41C2B729A9700E67FD2 /* ContentView.swift */,
+				8543A41A2B729A9700E67FD2 /* HabitTrackerApp.swift */,
 				8543A41E2B729A9900E67FD2 /* Assets.xcassets */,
 				8543A4202B729A9900E67FD2 /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				8543A41D2B729A9700E67FD2 /* ContentView.swift in Sources */,
 				8543A41B2B729A9700E67FD2 /* HabitTrackerApp.swift in Sources */,
+				8543A42B2B7368FE00E67FD2 /* AddHabitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

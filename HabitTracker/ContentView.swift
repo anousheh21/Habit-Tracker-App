@@ -23,17 +23,33 @@ class Habits {
 }
 
 struct ContentView: View {
-    @State private var habits = Habits()
+    @State private var habitsInstance = Habits()
+    
+    @State private var showingAddHabit = false
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(habits.habits) { item in
-                    Text(item.name)
+                ForEach(habitsInstance.habits) { habit in
+                    Text(habit.name)
                 }
+                .onDelete(perform: removeHabit)
             }
             .navigationTitle("Habit Tracker")
+            .toolbar {
+                Button("Add Habit", systemImage: "plus") {
+                    showingAddHabit = true
+                }
+            }
+            .sheet(isPresented: $showingAddHabit) {
+                AddHabitView(habitsInstance: habitsInstance)
+            }
         }
+    }
+    
+    // FUNCTIONS
+    func removeHabit(at offsets: IndexSet) {
+        habitsInstance.habits.remove(atOffsets: offsets)
     }
 }
 
