@@ -35,13 +35,23 @@ struct ContentView: View {
             
             // Shows text if there are no habits to display
             if habitsInstance.habits == [] {
-                Text("Press + to Add a New Habit")
+                VStack {
+                    Spacer()
+                    Text("Press + to Add a New Habit")
+                        .foregroundStyle(.secondary)
+                }
+                    
             }
             
             List {
                 // ForEach Loop to show all habits in the habits array
                 ForEach(habitsInstance.habits) { habit in
-                    Text(habit.name)
+                    NavigationLink {
+                        DetailView(description: habit.description, habitsInstance: Habits())
+                    } label: {
+                        Text(habit.name)
+                    }
+                    // Text(habit.name)
                 }
                 .onDelete(perform: removeHabit)
             }

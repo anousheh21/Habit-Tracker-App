@@ -4,15 +4,21 @@
 //
 //  Created by Anousheh Hasan on 07/02/2024.
 //
+// View which shows the description of the associated habit
 
 import SwiftUI
 
 struct DetailView: View {
+    var description: String
+    var habitsInstance: Habits
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(description)
+        }
     }
 }
 
 #Preview {
-    DetailView()
+    DetailView(description: "Description Placeholder", habitsInstance: Habits())
 }
